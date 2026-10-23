@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +16,9 @@
   --bg: #eee5f5;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -33,12 +34,29 @@ header {
   border-bottom: 5px solid var(--gold);
 }
 
-.wrap { max-width: 1100px; margin: auto; }
+.wrap {
+  max-width: 1100px;
+  margin: auto;
+}
 
 header h1 {
   margin: 0 0 5px;
   font-size: clamp(23px, 4vw, 32px);
   line-height: 1.2;
+}
+
+header p {
+  margin: 0;
+  color: #f1e8fa;
+}
+
+/* New subtitle beneath the school heading */
+header .subtitle {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #f3e8ff;
 }
 
 main {
@@ -64,23 +82,25 @@ main {
   border-radius: 14px;
   padding: 22px;
   box-shadow: 0 4px 18px #28123d0a;
-  color: var(--ink);
+  color: #25212b;
 }
 
 .panel h2 {
   font-size: 19px;
   margin: 0 0 17px;
-  color: var(--purple-dark);
+  color: #48216b;
 }
 
-.field { margin-bottom: 14px; }
+.field {
+  margin-bottom: 14px;
+}
 
 .field label {
   display: block;
   font-weight: 700;
   font-size: 13px;
   margin-bottom: 5px;
-  color: var(--ink);
+  color: #25212b;
 }
 
 .field input,
@@ -134,7 +154,9 @@ main {
   color: #fff;
 }
 
-.primary:hover { background: var(--purple-dark); }
+.primary:hover {
+  background: var(--purple-dark);
+}
 
 .secondary {
   background: #f0e8f6;
@@ -159,7 +181,7 @@ main {
 
 .preview-note {
   font-size: 12px;
-  color: var(--muted);
+  color: #68616f;
   margin: 10px 0 0;
 }
 
@@ -169,25 +191,33 @@ main {
   background: #f5effa;
   border: 1px solid #e2d2ef;
   border-radius: 10px;
-  color: var(--ink);
+  color: #25212b;
 }
 
 .instructions h3 {
   margin: 0 0 8px;
   font-size: 15px;
-  color: var(--purple-dark);
+  color: #48216b;
 }
 
 .instructions ol {
   padding-left: 22px;
   margin: 8px 0;
+  color: #25212b;
 }
 
-.instructions li { margin: 8px 0; }
+.instructions li {
+  margin: 8px 0;
+  color: #25212b;
+}
 
-.instructions a,
-.questions a {
-  color: var(--purple-dark);
+.instructions p {
+  color: #51465a;
+  margin: 12px 0 0;
+}
+
+.instructions a {
+  color: #48216b;
   text-decoration: underline;
 }
 
@@ -196,7 +226,21 @@ main {
   margin: 12px 0 0;
 }
 
-.questions strong { color: var(--ink); }
+.questions strong {
+  color: #25212b;
+}
+
+.questions a {
+  color: #48216b;
+  text-decoration: underline;
+}
+
+.seal-top {
+  height: 48px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 12px;
+}
 
 footer {
   text-align: center;
@@ -211,8 +255,13 @@ footer {
     margin-top: 16px;
   }
 
-  .panel { padding: 17px; }
-  .two { gap: 9px; }
+  .panel {
+    padding: 17px;
+  }
+
+  .two {
+    gap: 9px;
+  }
 }
 </style>
 </head>
@@ -222,140 +271,147 @@ footer {
 <header>
   <div class="wrap">
     <h1>St. Martin de Porres Marianist School</h1>
+    <p class="subtitle">Email Signature Generator</p>
   </div>
 </header>
 
 <main>
-  <div class="column">
 
-    <section class="panel">
-      <h2>Your Information</h2>
+<div class="column">
 
-      <div class="field">
-        <label for="salutation">Title</label>
-        <select id="salutation">
-          <option value="">Select a title (optional)</option>
-          <option>Mr.</option>
-          <option>Mrs.</option>
-          <option>Ms.</option>
-          <option>Dr.</option>
-          <option>Fr.</option>
-          <option>Bro.</option>
-          <option>Sr.</option>
-        </select>
-      </div>
+<section class="panel">
+  <h2>Your Information</h2>
 
-      <div class="two">
-        <div class="field">
-          <label for="first">First Name *</label>
-          <input id="first" placeholder="Jane" autocomplete="given-name">
-        </div>
-        <div class="field">
-          <label for="middle">Middle Initial</label>
-          <input id="middle" placeholder="A.">
-        </div>
-      </div>
-
-      <div class="two">
-        <div class="field">
-          <label for="last">Last Name *</label>
-          <input id="last" placeholder="Smith" autocomplete="family-name">
-        </div>
-        <div class="field">
-          <label for="credentials">Credentials</label>
-          <input id="credentials" placeholder="M.Ed., etc.">
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="position">Title / Position / Department *</label>
-        <input id="position" placeholder="Teacher · Mathematics">
-      </div>
-
-      <div class="two">
-        <div class="field">
-          <label for="phone">School Phone</label>
-          <input id="phone" value="516-481-3303" readonly aria-readonly="true">
-        </div>
-        <div class="field">
-          <label for="extension">Office Extension (optional) — Please do not put Classroom Extension.</label>
-          <input id="extension" placeholder="123">
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="email">School Email *</label>
-        <input id="email" type="email" placeholder="jsmith@school.org">
-      </div>
-
-      <div class="btns">
-        <button class="btn primary" id="copy" type="button">Copy Signature</button>
-        <button class="btn secondary" id="reset" type="button">Clear fields</button>
-      </div>
-
-      <div class="status" id="status" aria-live="polite"></div>
-    </section>
-
-    <section class="panel questions">
-      <h2>Common Questions</h2>
-
-      <p>
-        <strong>Should I set this up on my computer or my phone?</strong><br>
-        On a computer. The full signature, with the school logo, is best set up on a computer. Complete the steps below once on a computer to use the signature when sending email from that computer.
-      </p>
-
-      <p>
-        <strong>Will this signature show up on emails I send from my iPhone?</strong><br>
-        Not automatically. The Mail app on your iPhone keeps its own signature, separate from the one above, and it supports plain text in its signature settings. To set a simple one, open the iPhone <strong>Settings</strong> app, tap <strong>Apps</strong>, then <strong>Mail</strong>, then <strong>Signature</strong>. On older iPhones, go to <strong>Settings</strong>, then <strong>Mail</strong>, then <strong>Signature</strong>. Type a few lines such as your name, title, and St. Martin de Porres Marianist School.
-      </p>
-
-      <p>
-        <strong>I clicked Copy Signature and nothing seemed to happen.</strong><br>
-        Go to Gmail and try pasting. If your browser asked for permission, make sure you clicked <strong>Allow</strong>. If copying still fails, click <a href="https://smms-web.github.io/SMMS-Signature-Generator/" target="_blank" rel="noopener noreferrer">open this page in its own tab</a> and try again.
-      </p>
-
-      <p>
-        <strong>When I pasted, the logo and colors were gone.</strong><br>
-        This can happen when the signature is copied on a phone or pasted into the wrong box. On a computer, open Gmail <strong>Settings</strong>, then <strong>See all settings</strong>, then <strong>General</strong>, then <strong>Signature</strong>. Paste using <strong>Ctrl+V</strong> on Windows or <strong>Command+V</strong> on a Mac.
-      </p>
-
-      <p>
-        <strong>My title, extension, or email changed. Do I have to redo it?</strong><br>
-        Yes, but it only takes a minute. Return to this page, update your information, click <strong>Copy Signature</strong>, and paste it over your old signature in Gmail. Click <strong>Save Changes</strong> when finished.
-      </p>
-
-      <p>
-        <strong>It still is not showing up on my emails.</strong><br>
-        In Gmail signature settings, check <strong>Signature defaults</strong> and choose your SMMS signature for new emails and replies/forwards. Then scroll to the bottom of the settings page and click <strong>Save Changes</strong>.
-      </p>
-    </section>
-
+  <div class="field">
+    <label for="salutation">Title</label>
+    <select id="salutation">
+      <option value="">Select a title (optional)</option>
+      <option>Mr.</option>
+      <option>Mrs.</option>
+      <option>Ms.</option>
+      <option>Dr.</option>
+      <option>Fr.</option>
+      <option>Bro.</option>
+      <option>Sr.</option>
+    </select>
   </div>
 
-  <div class="column">
-    <section class="panel">
-      <h2>Preview</h2>
+  <div class="two">
+    <div class="field">
+      <label for="first">First Name *</label>
+      <input id="first" placeholder="Jane" autocomplete="given-name">
+    </div>
 
-      <div class="preview-wrap" id="preview"></div>
-
-      <p class="preview-note">
-        Preview updates as you type. Use “Copy Signature” from the published HTTPS site, then paste into Gmail. The logo and icons use public image links to keep the signature small.
-      </p>
-
-      <div class="instructions">
-        <h3>How to add your <strong>Signature</strong> to <strong>Gmail</strong></h3>
-
-        <ol>
-          <li>Fill in your information on the left, then click <strong>Copy Signature</strong>.</li>
-          <li>Open <a href="https://mail.google.com/" target="_blank" rel="noopener noreferrer">Gmail</a> and click the <strong>Settings</strong> gear icon in the top right, then <strong>See all settings</strong>.</li>
-          <li>Under <strong>General</strong>, scroll to <strong>Signature</strong>.</li>
-          <li>Click <strong>Create new</strong>, give it a name (for example, “SMMS”), and paste into the signature box using Ctrl+V or Cmd+V.</li>
-          <li>Under <strong>Signature defaults</strong>, choose your new signature for new emails and replies/forwards.</li>
-          <li>Scroll to the bottom and click <strong>Save Changes</strong>.</li>
-        </ol>
-      </div>
-    </section>
+    <div class="field">
+      <label for="middle">Middle Initial</label>
+      <input id="middle" placeholder="A.">
+    </div>
   </div>
+
+  <div class="two">
+    <div class="field">
+      <label for="last">Last Name *</label>
+      <input id="last" placeholder="Smith" autocomplete="family-name">
+    </div>
+
+    <div class="field">
+      <label for="credentials">Credentials</label>
+      <input id="credentials" placeholder="M.Ed., etc.">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="position">Title / Position / Department *</label>
+    <input id="position" placeholder="Teacher · Mathematics">
+  </div>
+
+  <div class="two">
+    <div class="field">
+      <label for="phone">School Phone</label>
+      <input id="phone" value="516-481-3303" readonly aria-readonly="true">
+    </div>
+
+    <div class="field">
+      <label for="extension">Office Extension (optional) Please do not put Classroom Extension.</label>
+      <input id="extension" placeholder="123">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="email">School Email *</label>
+    <input id="email" type="email" placeholder="jsmith@school.org">
+  </div>
+
+  <div class="btns">
+    <button class="btn primary" id="copy">Copy Signature</button>
+    <button class="btn secondary" id="reset">Clear fields</button>
+  </div>
+
+  <div class="status" id="status" aria-live="polite"></div>
+</section>
+
+<section class="panel questions">
+  <h2>Common Questions</h2>
+
+  <p>
+    <strong>Should I set this up on my computer or my phone?</strong><br>
+    On a computer. The full signature, with the school logo, only works when you set it up on a computer. Do the steps above one time on a computer and every email you send from that computer will have it.
+  </p>
+
+  <p>
+    <strong>Will this signature show up on emails I send from my iPhone?</strong><br>
+    Not on its own. The Mail app on your iPhone keeps its own signature, separate from the one above, and it can only hold plain text. That means your name and title will show, but not the logo or the colors. To set a simple one, open the iPhone <strong>Settings</strong> app, tap <strong>Apps</strong>, then <strong>Mail</strong>, then <strong>Signature</strong> (on an older iPhone it is simply <strong>Settings</strong>, then <strong>Mail</strong>, then <strong>Signature</strong>). Type a few lines such as your name, your title, and St. Martin de Porres Marianist School.
+  </p>
+
+  <p>
+    <strong>I clicked Copy Signature and nothing seemed to happen.</strong><br>
+    It most likely worked anyway. Go to Gmail and paste to check before trying again. If your browser asked for permission, be sure you clicked <strong>Allow</strong>. If it still will not copy, click <a href="https://smms-web.github.io/SMMS-Signature-Generator/#" target="_blank" rel="noopener noreferrer">open this page in its own tab</a> and copy from there.
+  </p>
+
+  <p>
+    <strong>When I pasted, the logo and colors were gone.</strong><br>
+    That happens when the signature is pasted on a phone, or into the wrong box. Set it up on a computer, in the Gmail signature box you reach through <strong>Settings</strong>, then <strong>See all settings</strong>, then <strong>General</strong>, then <strong>Signature</strong>. Paste with the keyboard: hold <strong>Ctrl</strong> and press <strong>V</strong> on Windows, or hold <strong>Command</strong> and press <strong>V</strong> on a Mac.
+  </p>
+
+  <p>
+    <strong>My title, extension, or email changed. Do I have to redo it?</strong><br>
+    Yes, and it only takes a minute. Come back to this page, type in your new information, click <strong>Copy Signature</strong>, and paste it over your old signature in Gmail using the same steps. Click <strong>Save Changes</strong> when you finish.
+  </p>
+
+  <p>
+    <strong>It still is not showing up on my emails.</strong><br>
+    Check two things in the Gmail signature settings. First, under <strong>Signature defaults</strong>, choose your SMMS signature for new emails and for replies. Second, scroll to the very bottom of the settings page and click <strong>Save Changes</strong>.
+  </p>
+</section>
+
+</div>
+
+<div class="column">
+
+<section class="panel">
+  <h2>Preview</h2>
+
+  <div class="preview-wrap" id="preview"></div>
+
+  <p class="preview-note">
+    Preview updates as you type. Use “Copy Signature” from the published HTTPS site, then paste into Gmail. The logo and icons use short public image links so the signature stays under Gmail’s size limit.
+  </p>
+
+  <div class="instructions">
+    <h3>How to add it to Gmail</h3>
+
+    <ol>
+      <li>Fill in your information on the left, then click <b>Copy Signature</b>.</li>
+      <li>Open <a href="https://mail.google.com/" target="_blank" rel="noopener noreferrer">Gmail</a> and click the <b>Settings</b> gear icon (top right), then <b>See all settings.</b></li>
+      <li>Under <b>General</b>, scroll to <b>Signature</b>.</li>
+      <li>Click <b>Create new</b>, give it a name (for example, "SMMS"), and paste into the signature box (Ctrl+V or Cmd+V).</li>
+      <li>Under <b>Signature defaults</b>, choose your new signature for new emails and for replies/forwards.</li>
+      <li>Scroll to the bottom and click <b>Save Changes</b>.</li>
+    </ol>
+  </div>
+</section>
+
+</div>
 </main>
 
 <footer>
@@ -364,13 +420,10 @@ footer {
 
 <script>
 const ASSET_BASE = new URL('./assets/', window.location.href).href;
-
 const LOGO = ASSET_BASE + 'school-seal.png';
 const FACEBOOK_ICON = ASSET_BASE + 'facebook.png';
 const INSTAGRAM_ICON = ASSET_BASE + 'instagram.png';
 const SMUGMUG_ICON = ASSET_BASE + 'smugmug.png';
-
-const SCHOOL_URL = 'https://www.stmartinmarianist.org/';
 
 const ids = [
   'salutation',
@@ -398,18 +451,11 @@ function escapeHtml(s) {
 }
 
 function makeSignature() {
-  const nameParts = [
-    val('salutation'),
-    val('first'),
-    val('middle'),
-    val('last')
-  ].filter(Boolean);
-
-  const fullName = nameParts.join(' ');
-  const credentials = val('credentials');
-
-  // Add a comma after the last name only when credentials are provided.
-  const full = fullName + (credentials ? ', ' + credentials : '');
+  const full =
+    [val('salutation'), val('first'), val('middle'), val('last')]
+      .filter(Boolean)
+      .join(' ') +
+    (val('credentials') ? ', ' + val('credentials') : '');
 
   const purple = '#683093';
   const gold = '#ffcc32';
@@ -418,28 +464,28 @@ function makeSignature() {
     ? `<div style="font-size:13px;color:${purple};font-weight:bold;margin-top:3px">${escapeHtml(val('position'))}</div>`
     : '';
 
-  const phone = `<div style="font-size:12px;color:#51465a;margin-top:7px">516-481-3303${val('extension') ? ' ext. ' + escapeHtml(val('extension')) : ''}</div>`;
+  const phone =
+    `<div style="font-size:12px;color:#51465a;margin-top:7px">516-481-3303${val('extension') ? ' ext. ' + escapeHtml(val('extension')) : ''}</div>`;
 
   const email = val('email')
     ? `<div style="font-size:12px;margin-top:3px"><a style="color:${purple};text-decoration:none" href="mailto:${escapeHtml(val('email'))}">${escapeHtml(val('email'))}</a></div>`
     : '';
 
-  const website = `<div style="font-size:12px;margin-top:3px"><a style="color:${purple};text-decoration:none" href="${SCHOOL_URL}">stmartinmarianist.org</a></div>`;
+  const website =
+    '<div style="font-size:12px;margin-top:3px"><a style="color:#683093;text-decoration:none" href="https://www.stmartinmarianist.org/">stmartinmarianist.org</a></div>';
 
-  // Keep images as public HTTPS URLs instead of embedding base64 data.
-  // This helps keep the copied signature compact.
-
+  // Use short HTTPS image URLs instead of embedding base64 image data.
   return `<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;border-collapse:collapse;color:#29232f;max-width:620px">
     <tr>
       <td valign="middle" style="padding:0 12px 0 0;border-right:3px solid ${gold}">
-        <a href="${SCHOOL_URL}" title="St. Martin de Porres Marianist School" style="text-decoration:none;border:0">
+        <a href="https://stmartinmarianist.org/" title="St. Martin de Porres Marianist School" style="text-decoration:none;border:0">
           <img src="${LOGO}" alt="St. Martin de Porres Marianist School" width="82" style="display:block;width:82px;height:auto;border:0">
         </a>
       </td>
       <td valign="middle" style="padding:2px 0 2px 12px">
         <div style="font-size:16px;line-height:1.2;font-weight:bold;color:${purple}">${escapeHtml(full || 'Your Name')}</div>
         ${position}
-        <div style="font-size:14px;line-height:1.3;font-weight:400;letter-spacing:.2px;color:#48216b;margin-top:6px">St. Martin de Porres Marianist School</div>
+        <div style="font-size:11px;font-weight:bold;letter-spacing:.3px;color:#51465a;margin-top:5px">St. Martin de Porres Marianist School</div>
         ${phone}
         ${email}
         ${website}
@@ -465,15 +511,12 @@ function render() {
   $('preview').innerHTML = makeSignature();
 }
 
-ids.forEach(id => {
-  $(id).addEventListener('input', render);
-  $(id).addEventListener('change', render);
-});
+ids.forEach(id => $(id).addEventListener('input', render));
 
 $('copy').addEventListener('click', async () => {
   if (location.protocol !== 'https:') {
     $('status').textContent =
-      'Open the published HTTPS website to copy your signature. The signature uses public image links to keep it small.';
+      'Open the published HTTPS website to copy your signature. The email signature uses short public image links to avoid Gmail’s signature-length limit.';
     return;
   }
 
@@ -497,35 +540,30 @@ $('copy').addEventListener('click', async () => {
 
   if (imageChecks.some(ok => !ok)) {
     $('status').textContent =
-      'One or more images could not be loaded. Make sure index.html and the assets folder are published from the repository root.';
+      'One or more images could not be loaded. Make sure index.html and the assets folder are both published from the repository root.';
     return;
   }
 
   const html = makeSignature();
 
-  const plainName = [
-    val('salutation'),
-    val('first'),
-    val('middle'),
-    val('last')
-  ].filter(Boolean).join(' ') +
-    (val('credentials') ? ', ' + val('credentials') : '');
-
   const plain = [
-    plainName,
+    [val('salutation'), val('first'), val('middle'), val('last')]
+      .filter(Boolean)
+      .join(' ') +
+      (val('credentials') ? ', ' + val('credentials') : ''),
     val('position'),
     'St. Martin de Porres Marianist School',
     '516-481-3303' + (val('extension') ? ' ext. ' + val('extension') : ''),
     val('email'),
-    SCHOOL_URL
+    'https://stmartinmarianist.org/'
   ].filter(Boolean).join('\n');
 
   try {
     if (navigator.clipboard && window.ClipboardItem) {
       await navigator.clipboard.write([
         new ClipboardItem({
-          'text/html': new Blob([html], { type: 'text/html' }),
-          'text/plain': new Blob([plain], { type: 'text/plain' })
+          'text/html': new Blob([html], {type: 'text/html'}),
+          'text/plain': new Blob([plain], {type: 'text/plain'})
         })
       ]);
     } else {
@@ -535,28 +573,24 @@ $('copy').addEventListener('click', async () => {
       temp.style.left = '-9999px';
       document.body.appendChild(temp);
 
-      const range = document.createRange();
-      range.selectNodeContents(temp);
+      const r = document.createRange();
+      r.selectNodeContents(temp);
 
       const selection = window.getSelection();
       selection.removeAllRanges();
-      selection.addRange(range);
+      selection.addRange(r);
 
-      const copied = document.execCommand('copy');
+      document.execCommand('copy');
 
       selection.removeAllRanges();
       temp.remove();
-
-      if (!copied) {
-        throw new Error('Copy command was unsuccessful');
-      }
     }
 
     $('status').textContent =
-      'Signature copied! Paste it into your Gmail signature settings.';
+      'Signature copied. The copied HTML uses public image URLs, not embedded image data, to keep the signature small. Paste it into Gmail settings.';
   } catch (e) {
     $('status').textContent =
-      'Copy was blocked by your browser. Allow clipboard access and try again.';
+      'Copy was blocked by your browser. Please allow clipboard access and try again.';
   }
 });
 
