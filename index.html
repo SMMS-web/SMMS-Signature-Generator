@@ -54,7 +54,7 @@ Check two things in the Gmail signature settings. First, under <strong>Signature
 <div class="column">
 <section class="panel"><h2>Preview</h2><div class="preview-wrap" id="preview"></div><p class="preview-note">Preview updates as you type. Use “Copy Signature” from the published HTTPS site, then paste into Gmail. The logo and icons use short public image links so the signature stays under Gmail’s size limit.</p>
 <div class="instructions">
-<h3>How to add it to Gmail</h3>
+<h3>How to add your <b>Signature</b> to <b>Gmail</b></h3>
 <ol>
 <li>Fill in your information on the left, then click <b>Copy Signature</b>.</li>
 <li>Open <a href="https://mail.google.com/" target="_blank" rel="noopener noreferrer">Gmail</a> and click the <b>Settings</b> gear icon (top right), then <b>See all settings.</b></li>
@@ -82,7 +82,7 @@ function makeSignature(){
  const position=val('position')?`<div style="font-size:13px;color:${purple};font-weight:bold;margin-top:3px">${escapeHtml(val('position'))}</div>`:'';
  const phone=`<div style="font-size:12px;color:#51465a;margin-top:7px">516-481-3303${val('extension')?' ext. '+escapeHtml(val('extension')):''}</div>`;
  const email=val('email')?`<div style="font-size:12px;margin-top:3px"><a style="color:${purple};text-decoration:none" href="mailto:${escapeHtml(val('email'))}">${escapeHtml(val('email'))}</a></div>`:'';
- const website='<div style="font-size:12px;margin-top:3px"><a style="color:#683093;text-decoration:none" href="https://www.stmartinmarianist.org/">stmartinmarianist.org</a></div>';
+ const website='<div style="font-size:12px;margin-top:3px"><a style="color:#683093;text-decoration:none" href="https://www.stmartinmarianist.org/">https://www.stmartinmarianist.org</a></div>';
  // Important: these are short HTTPS image URLs. Do not embed base64 image data in the email signature.
  return `<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;border-collapse:collapse;color:#29232f;max-width:620px"><tr><td valign="middle" style="padding:0 12px 0 0;border-right:3px solid ${gold}"><a href="https://stmartinmarianist.org/" title="St. Martin de Porres Marianist School" style="text-decoration:none;border:0"><img src="${LOGO}" alt="St. Martin de Porres Marianist School" width="82" style="display:block;width:82px;height:auto;border:0"></a></td><td valign="middle" style="padding:2px 0 2px 12px"><div style="font-size:16px;line-height:1.2;font-weight:bold;color:${purple}">${escapeHtml(full||'Your Name')}</div>${position}<div style="font-size:11px;font-weight:bold;letter-spacing:.3px;color:#51465a;margin-top:5px">St. Martin de Porres Marianist School</div>${phone}${email}${website}<div style="height:2px;background:${gold};margin-top:8px"></div><div style="font-size:10px;letter-spacing:.7px;color:${purple};font-weight:bold;margin-top:4px">Above All, Charity</div><div style="margin-top:7px;white-space:nowrap"><a href="https://www.facebook.com/StMartinMarianist" title="Facebook" style="text-decoration:none;margin-right:9px"><img src="${FACEBOOK_ICON}" alt="Facebook" width="20" height="20" style="width:20px;height:20px;border:0;vertical-align:middle"></a><a href="https://www.instagram.com/st.martinms" title="Instagram" style="text-decoration:none;margin-right:9px"><img src="${INSTAGRAM_ICON}" alt="Instagram" width="20" height="20" style="width:20px;height:20px;border:0;vertical-align:middle"></a><a href="https://photos.stmartinmarianist.org/" title="SmugMug Photos" style="text-decoration:none"><img src="${SMUGMUG_ICON}" alt="SmugMug Photos" width="20" height="20" style="width:20px;height:20px;border:0;vertical-align:middle"></a></div></td></tr></table>`;
 }
@@ -103,7 +103,7 @@ $('copy').addEventListener('click',async()=>{
    return;
  }
  const html=makeSignature();
- const plain=[[val('salutation'),val('first'),val('middle'),val('last')].filter(Boolean).join(' ')+(val('credentials')?', '+val('credentials'):''),val('position'),'St. Martin de Porres Marianist School','516-481-3303'+(val('extension')?' ext. '+val('extension'):''),val('email'),'https://stmartinmarianist.org/'].filter(Boolean).join('\n');
+ const plain=[[val('salutation'),val('first'),val('middle'),val('last')].filter(Boolean).join(' ')+(val('credentials')?', '+val('credentials'):''),val('position'),'St. Martin de Porres Marianist School','516-481-3303'+(val('extension')?' ext. '+val('extension'):''),val('email'),'https://www.stmartinmarianist.org/'].filter(Boolean).join('\n');
  try{
    if(navigator.clipboard&&window.ClipboardItem){
      await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([plain],{type:'text/plain'})})]);
