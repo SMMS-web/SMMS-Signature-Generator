@@ -486,7 +486,10 @@ function makeSignature() {
         <div style="font-size:16px;line-height:1.2;font-weight:bold;color:${purple}">${escapeHtml(full || 'Your Name')}</div>
         ${position}
 <div style="font-size:14px;font-weight:790;letter-spacing:.3px;color:#51465a;margin-top:5px">St. Martin de Porres Marianist School</div>
-        <div style="font-size:12px;color:#51465a;margin-top:3px">530 Hempstead Blvd, Uniondale, NY 11553</div>
+        <div style="font-size:12px;color:#51465a;margin-top:3px">
+  530 Hempstead Blvd.<br>
+  Uniondale, NY 11553
+</div>
         ${phone}
         ${email}
         ${website}
@@ -554,7 +557,7 @@ $('copy').addEventListener('click', async () => {
       (val('credentials') ? ', ' + val('credentials') : ''),
     val('position'),
     'St. Martin de Porres Marianist School',
-    '530 Hempstead Blvd, Uniondale, NY 11553',
+    '530 Hempstead Blvd.\nUniondale, NY 11553',
     '516-481-3303' + (val('extension') ? ' ext. ' + val('extension') : ''),
     val('email'),
     'https://www.stmartinmarianist.org/'
